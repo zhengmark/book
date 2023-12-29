@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxifierProfile version="102" platform="Windows" product_id="0" product_minver="400">
+	<Options>
+		<Resolve>
+			<AutoModeDetection enabled="false" />
+			<ViaProxy enabled="true" />
+			<BlockNonATypes enabled="false" />
+			<ExclusionList OnlyFromListMode="false">%ComputerName%; localhost; *.local</ExclusionList>
+			<DnsUdpMode>0</DnsUdpMode>
+		</Resolve>
+		<Encryption mode="basic" />
+		<ConnectionLoopDetection enabled="false" resolve="true" />
+		<Udp mode="mode_bypass" />
+		<LeakPreventionMode enabled="false" />
+		<ProcessOtherUsers enabled="false" />
+		<ProcessServices enabled="false" />
+		<HandleDirectConnections enabled="false" />
+		<HttpProxiesSupport enabled="false" />
+	</Options>
+	<ProxyList>
+		<Proxy id="101" type="SOCKS5">
+			<Options>48</Options>
+			<Port>7890</Port>
+			<Address>127.0.0.1</Address>
+		</Proxy>
+	</ProxyList>
+	<ChainList />
+	<RuleList>
+		<Rule enabled="true">
+			<Action type="Direct" />
+			<Applications>clash-win64.exe;
+uu.exe;
+agent.exe;
+"battle.net.exe";
+</Applications>
+			<Name>(Direct)Applications</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Direct" />
+			<Targets>localhost; 
+127.0.0.1; 
+%ComputerName%; 
+::1; 
+192.168.50.46; 
+*.download.nvidia.com; 
+media.steampowered.com; 
+*.steamcontent.com; 
+www.gyan.dev; 
+*.bilivideo.com; 
+*.cn; 
+*.hdslb.com; 
+beacons.gvt2.com; 
+*.bilibili.com; 
+*.bilivideo.com; 
+*.baidu.*; 
+*.csdn.net; 
+download.visualstudio.microsoft.com;
+*.v.smtcdns.net;
+
+
+
+
+
+
+
+</Targets>
+			<Name>localHost</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.adobe.*
+a5.behance.net</Targets>
+			<Name>adobe</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.amazon.*; 
+*.amazontrust.*;
+</Targets>
+			<Name>amazon</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.account.battle.net;
+*.shop.battle.net;
+
+
+
+</Targets>
+			<Name>battleNet</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.codeforces.org; 
+codeforces.com; 
+</Targets>
+			<Name>codeforces</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.discord.*;
+*.discordapp.*;
+*.spotify.com;
+discord.com;
+</Targets>
+			<Name>discord</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.duckduckgo.com; 
+</Targets>
+			<Name>duckDuckGo</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>friends.gs.ea.com
+api1.origin.com
+secure.download.dm.origin.com
+confluence.ea.com
+eacommerce.akamaized.net
+js-agent.newrelic.com</Targets>
+			<Name>electronicArts</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.github.*
+*.githubusercontent.*
+*.obsproject.com</Targets>
+			<Name>gitHub</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.google.*; 
+*.googleusercontent.com; 
+*.googleapis.com; 
+ssl.google-analytics.com; 
+*.youtube.*; 
+*.youtu.be.*;
+*.ytimg.com; 
+*.gstatic.com; 
+*.googlevideo.*; 
+*.goog; 
+www.gstatic.com;
+</Targets>
+			<Name>google</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.bing.*; 
+*.microsoft.*; 
+*.microsoftonline.*; 
+*.windows.*; 
+*.windows.com; 
+logincdn.msauth.net; 
+*.visualstudio.com; 
+*.office.com; 
+*.onedrive.com; 
+mlnet.gallery.vsassets.io; 
+mlnet.gallerycdn.vsassets.io; 
+*.live.com; 
+ocsp.godaddy.com; 
+aadcdn.msftauth.net; 
+
+
+
+</Targets>
+			<Name>microsoft</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.mozilla.*; 
+*.firefox.*; 
+spocs.getpocket.com; 
+*.ingest.sentry.io; 
+
+
+</Targets>
+			<Name>mozilla</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.nvidia.com
+*.geforce.com</Targets>
+			<Name>nvdia</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.openai.*</Targets>
+			<Name>openai</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>sms-activate.org;</Targets>
+			<Name>sms-activate.org</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.spotify.*</Targets>
+			<Name>spotify</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>cdn.sstatic.net; 
+</Targets>
+			<Name>stackOverflow</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.st.dl.eccdnx.com; 
+steamcommunity.com; 
+*.steamserver.*; 
+
+</Targets>
+			<Name>steam</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.tiktok.com</Targets>
+			<Name>tiktok</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.*.*.ttvnw.net; 
+*.*.twitch.tv; 
+*.*.amazonaws.com; 
+*.ttvnw.net; 
+*.twitchcdn.net; 
+*.twitch.tv; 
+*.*.*.ttvnw.net; 
+*.amazon.com; 
+cdn.streamelements.com; 
+c.amazon-adsystem.com; 
+m.media-amazon.com; 
+*.nuid.imrworldwide.com; 
+*.amazon-adsystem.com; 
+static-cdn.jtvnw.net; 
+*.cloudfront.net; 
+global.poe.live-video.net; </Targets>
+			<Name>twitch</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.twitter.*
+</Targets>
+			<Name>twitter</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Targets>*.wikipedia.org
+</Targets>
+			<Name>wikipedia</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Applications>charles.exe; </Applications>
+			<Name>charles.exe</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Proxy">101</Action>
+			<Applications>obs64.exe;
+obs-browser-page.exe;
+chrome.exe;
+discord.exe;
+telegram.exe;
+lghub.exe;
+okx.exe;
+spotify.exe;
+devenv.exe;
+code.exe;
+java.exe;
+onedrive.exe;
+"winstore.app.exe";
+officeclicktorun.exe;
+dnplayer.exe;
+ld9boxheadless.exe;
+lyrebird.exe;
+setup.exe;
+python.exe;
+pycharm64.exe;
+
+</Applications>
+			<Name>Applications</Name>
+		</Rule>
+		<Rule enabled="true">
+			<Action type="Direct" />
+			<Name>Default</Name>
+		</Rule>
+	</RuleList>
+</ProxifierProfile>
