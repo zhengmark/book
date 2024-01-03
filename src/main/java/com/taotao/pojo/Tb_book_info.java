@@ -67,12 +67,12 @@ public class Tb_book_info {
 
     @Override
     public String toString() {
-        return "Tb_user{" +
-                "id=" + book_id +
-                ", name='" + book_name + '\'' +
-                ", password='" + category + '\'' +
-                ", address='" + author + '\'' +
-                ", address='" + introduce + '\'' +
+        return "Tb_book_info{" +
+                "book_id=" + book_id +
+                ", book_name='" + book_name + '\'' +
+                ", category='" + category + '\'' +
+                ", author='" + author + '\'' +
+                ", introduce='" + introduce + '\'' +
                 '}';
     }
 }

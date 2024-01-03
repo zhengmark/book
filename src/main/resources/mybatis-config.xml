@@ -15,6 +15,9 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="Tb_userMapper.xml"/>
+        <mapper resource="Tb_user.xml"/>
+        <mapper resource="Tb_book_info.xml"/>
+        <mapper resource="Tb_appraise.xml"/>
+        <mapper resource="Tb_shop.xml"/>
     </mappers>
 </configuration>

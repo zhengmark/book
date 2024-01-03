@@ -63,7 +63,7 @@ public class Tb_user {
                 ", name='" + user_name + '\'' +
                 ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
-                ", address='" + birth + '\'' +
+                ", birth='" + birth + '\'' +
                 '}';
     }
 }
