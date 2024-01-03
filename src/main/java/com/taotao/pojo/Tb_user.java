@@ -1,26 +1,27 @@
 package com.taotao.pojo;
 
 public class Tb_user {
-    private Integer id;
-    private String name;
+    private String user_id;
+    private String user_name;
     private String password;
-    private String gender;
-    private String addr;
+    private String phone_num;
+    private String address;
+    private String birth;
 
-    public Integer getId() {
-        return id;
+    public String getId() {
+        return user_id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.user_id = id;
     }
 
     public String getUsername() {
-        return name;
+        return user_name;
     }
 
     public void setUsername(String username) {
-        this.name = username;
+        this.user_name = username;
     }
 
     public String getPassword() {
@@ -31,30 +32,38 @@ public class Tb_user {
         this.password = password;
     }
 
-    public String getGender() {
-        return gender;
+    public String getPhone_num() {
+        return phone_num;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setPhone_num(String phone_num) {
+        this.phone_num = phone_num;
     }
 
-    public String getAddr() {
-        return addr;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddr(String addr) {
-        this.addr = addr;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
     }
 
     @Override
     public String toString() {
         return "Tb_user{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "id=" + user_id +
+                ", name='" + user_name + '\'' +
                 ", password='" + password + '\'' +
-                ", gender='" + gender + '\'' +
-                ", addr='" + addr + '\'' +
+                ", address='" + address + '\'' +
+                ", address='" + birth + '\'' +
                 '}';
     }
 }

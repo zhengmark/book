@@ -24,22 +24,11 @@ public class MyBatisDemo {
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
         //3.执行sql
-//        String unername = "username";
-//        String password = "123456";
-//        List<Tb_user> users = sqlSession.selectList("test.selectAll");
-        String username = "username";
-        String password = "123456";
+        //返回用户信息
+        List<Tb_user> users = sqlSession.selectList("test.selectAll");
 
-//      创建参数 Map
-        Map<String, Object> params = new HashMap<>();
-        params.put("name", username);
-        params.put("password", password);
-
-//      执行插入操作
-        sqlSession.insert("user.insertUser", params);
-
-//      提交事务（如果需要的话）
-        sqlSession.commit();
+        System.out.println(users);
+        System.out.println();
 
         //4.释放资源
         sqlSession.close();
