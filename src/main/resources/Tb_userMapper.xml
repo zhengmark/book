@@ -9,3 +9,5 @@
         select * from tb_user;
     </select>
 </mapper>
+<mapper namespace="insert_data">
+</mapper>>

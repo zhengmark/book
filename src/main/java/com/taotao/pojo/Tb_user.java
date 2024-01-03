@@ -51,7 +51,7 @@ public class Tb_user {
     public String toString() {
         return "Tb_user{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
+                ", name='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", gender='" + gender + '\'' +
                 ", addr='" + addr + '\'' +
