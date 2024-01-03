@@ -8,12 +8,11 @@ public class Tb_user {
     private String address;
     private String birth;
 
-    public String getId() {
+    public String getUser_id() {
         return user_id;
     }
 
-    public void setId(String id) {
-        this.user_id = id;
+    public void setUser_id(String id) {this.user_id = id;
     }
 
     public String getUsername() {

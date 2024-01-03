@@ -1066,14 +1066,15 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <RefColNames>book_id</RefColNames>
       <RefTableName>book_info</RefTableName>
     </foreign-key>
-    <index id="306" parent="297" name="user_id">
-      <ColNames>user_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="307" parent="297" name="book_id">
+    <index id="306" parent="297" name="book_id">
       <ColNames>book_id</ColNames>
       <Type>btree</Type>
     </index>
+    <key id="307" parent="297" name="PRIMARY">
+      <ColNames>user_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+    </key>
     <column id="308" parent="298" name="book_name">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1190,24 +1191,26 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <RefColNames>inventory</RefColNames>
       <RefTableName>book_info</RefTableName>
     </foreign-key>
-    <index id="332" parent="299" name="user_id">
-      <ColNames>user_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="333" parent="299" name="book_id">
+    <index id="332" parent="299" name="book_id">
       <ColNames>book_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="334" parent="299" name="unit_price">
+    <index id="333" parent="299" name="unit_price">
       <ColNames>unit_price</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="335" parent="299" name="inventory">
+    <index id="334" parent="299" name="inventory">
       <ColNames>inventory</ColNames>
       <Type>btree</Type>
     </index>
+    <key id="335" parent="299" name="PRIMARY">
+      <ColNames>user_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+    </key>
     <column id="336" parent="300" name="user_id">
       <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="337" parent="300" name="user_name">
@@ -1235,7 +1238,12 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="343" parent="300" name="user_id_unique_idx">
+    <key id="343" parent="300" name="PRIMARY">
+      <ColNames>user_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+    </key>
+    <key id="344" parent="300" name="user_id_unique_idx">
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>user_id_unique_idx</UnderlyingIndexName>
     </key>

@@ -19,5 +19,7 @@
         <mapper resource="Tb_book_info.xml"/>
         <mapper resource="Tb_appraise.xml"/>
         <mapper resource="Tb_shop.xml"/>
+        <mapper resource="log.xml"/>
+        <mapper resource="register.xml"/>
     </mappers>
 </configuration>
