@@ -2,7 +2,7 @@ package com.taotao.pojo;
 
 public class Tb_user {
     private Integer id;
-    private String username;
+    private String name;
     private String password;
     private String gender;
     private String addr;
@@ -16,11 +16,11 @@ public class Tb_user {
     }
 
     public String getUsername() {
-        return username;
+        return name;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.name = username;
     }
 
     public String getPassword() {
@@ -51,7 +51,7 @@ public class Tb_user {
     public String toString() {
         return "Tb_user{" +
                 "id=" + id +
-                ", name='" + username + '\'' +
+                ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", gender='" + gender + '\'' +
                 ", addr='" + addr + '\'' +

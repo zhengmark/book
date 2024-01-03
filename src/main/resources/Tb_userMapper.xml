@@ -3,11 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!--namespace:名称空间-->
 <mapper namespace="test">
-    <select id="selectAll" resultType="com.taotao.pojo.Tb_user">
-        select * from tb_user;
-    </select>
+    <!-- 插入用户数据 -->
+    <insert id="insertUser" parameterType="map">
+        INSERT INTO tb_user (name, password)
+        VALUES (#{name}, #{password})
+    </insert>
 </mapper>
-<mapper namespace="insert_data">
-</mapper>>
+

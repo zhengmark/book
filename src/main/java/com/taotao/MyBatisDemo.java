@@ -8,7 +8,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class MyBatisDemo {
@@ -22,9 +24,22 @@ public class MyBatisDemo {
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
         //3.执行sql
-        List<Tb_user> users = sqlSession.selectList("test.selectAll");
+//        String unername = "username";
+//        String password = "123456";
+//        List<Tb_user> users = sqlSession.selectList("test.selectAll");
+        String username = "username";
+        String password = "123456";
 
-        System.out.println(users);
+//      创建参数 Map
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", username);
+        params.put("password", password);
+
+//      执行插入操作
+        sqlSession.insert("test.insertUser", params);
+
+//      提交事务（如果需要的话）
+        sqlSession.commit();
 
         //4.释放资源
         sqlSession.close();
