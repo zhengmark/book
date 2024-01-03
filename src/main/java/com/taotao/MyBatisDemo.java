@@ -25,10 +25,10 @@ public class MyBatisDemo {
 
         //3.执行sql
         //返回用户信息
-        List<Tb_user> users = sqlSession.selectList("test.selectAll");
-
+        List<Tb_user> users = sqlSession.selectList("user.selectUser");
+        List<Tb_user> book_info = sqlSession.selectList("book_info.selectBook");
         System.out.println(users);
-        System.out.println();
+        System.out.println(book_info);
 
         //4.释放资源
         sqlSession.close();

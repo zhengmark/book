@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--namespace:名称空间-->
-<mapper namespace="test">
-    <select id="selectAll" resultType="com.taotao.pojo.Tb_user">
-        select * from book.user
+<mapper namespace="book_info">
+    <select id="selectBook" resultType="com.taotao.pojo.Tb_book_info">
+        select * from book.book_info
     </select>
 
 </mapper>
