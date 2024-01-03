@@ -45,7 +45,7 @@ public class MyBatisDemo {
 //这是测试登录函数
         Map<String, Object> params_log = new HashMap<>();
         String name_log = "zheng";
-        String pwd_log = "222222";
+        String pwd_log = "22222";
         params_log.put("user_name", name_log);
         params_log.put("password", pwd_log);
         Log log = new Log();
