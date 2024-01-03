@@ -36,7 +36,7 @@ public class MyBatisDemo {
         params.put("password", password);
 
 //      执行插入操作
-        sqlSession.insert("test.insertUser", params);
+        sqlSession.insert("user.insertUser", params);
 
 //      提交事务（如果需要的话）
         sqlSession.commit();

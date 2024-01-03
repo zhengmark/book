@@ -1,0 +1,57 @@
+# 创建用户表的列
+alter table book.user
+add phone_num varchar(45);
+
+alter table book.user
+add address varchar(45);
+
+alter table book.user
+add birth varchar(45);
+
+
+# 创建图书信息表
+CREATE TABLE book_info (
+    book_name varchar(45) not null unique,
+    category VARCHAR(50) not null,
+    book_id VARCHAR(100) primary key,
+    unit_price int not null,
+	author varchar(45) not null,
+    introduce varchar(900),
+    inventory int not null
+);
+
+# 创建评价表
+CREATE TABLE appraise(
+    user_id varchar(45) not null,
+    book_id VARCHAR(45) not null,
+    appraise VARCHAR(300) not null,
+    foreign key (user_id) references user(user_id),
+    foreign key (book_id) references book_info(book_id)
+);
+
+# 为user_id创建索引
+ALTER TABLE user
+ADD UNIQUE INDEX user_id_unique_idx (user_id);
+
+# 创建购物车表
+CREATE TABLE shop(
+    user_id varchar(45) not null,
+    book_id VARCHAR(45) not null,
+    unit_price int not null,
+    inventory int not null,
+    quantity_purchased int not null,
+    shipments int not null,
+    foreign key (user_id) references user(user_id),
+    foreign key (book_id) references book_info(book_id),
+    foreign key (unit_price) references book_info(unit_price),
+    foreign key (inventory) references book_info(inventory)
+);
+
+# 索引
+ALTER TABLE book_info
+ADD UNIQUE INDEX unit_price_unique_idx (unit_price);
+
+# 索引
+ALTER TABLE book_info
+ADD UNIQUE INDEX inventory_unique_idx (inventory);
+
