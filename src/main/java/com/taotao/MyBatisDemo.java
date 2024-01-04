@@ -49,16 +49,16 @@ public class MyBatisDemo {
 
                 params_log.put("user_name", name_log);
                 params_log.put("password", pwd_log);
-                LogIn log = new LogIn();
-                String a = log.logIn(name_log, pwd_log);
+                UserAuthentication log = new UserAuthentication();
+                String a = log.authenticateUser(name_log, pwd_log);
 
 //返回图书信息
                     Map<String, Object> params_search_book = new HashMap<>();
 
                     params_search_book.put("book_name",book_name);
                     params_search_book.put("book_id",book_id);
-                    Book_search book_search = new Book_search();
-                    System.out.println(book_search.book_search(book_id));
+                    BookSearchService book_search = new BookSearchService();
+                    System.out.println(book_search.searchBook(book_id));
 
 //插入用户评价
                     Map<String, Object> params_insert_appraise = new HashMap<>();
