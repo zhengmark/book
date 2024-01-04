@@ -9,25 +9,29 @@
 <body>
 <div class="box">
     <h1>用户注册</h1>
-    <form id="frm-register" action="re.php" method="post">
-        <label for="username">输入账号</label>
+    <form id="frm-register" action="#" method="post">
+        <label for="username">用户名</label>
         <input type="text" name="username" id="username" placeholder="请输入用户名" required>
-        <label for="password">输入密码</label>
-        <input type="password" name="password" id="password" placeholder="请输入密码" required> <!-- 修改为密码输入框 -->
-        <label for="email">邮箱</label>
-        <input type="email" name="email" id="email" placeholder="请输入邮箱" required>
+
+        <label for="password">密码</label>
+        <input type="password" name="password" id="password" placeholder="请输入密码" required>
+
+        <label for="phone">手机号码</label>
+        <input type="text" name="phone" id="phone" placeholder="请输入手机号码" required>
+
+        <label for="address">地址</label>
+        <input type="text" name="address" id="address" placeholder="请输入地址" required>
+
+        <label for="birth">生日</label>
+        <input type="date" name="birth" id="birth" required>
+
         <button type="submit">注册</button>
-        <a href="login.html">已有账号？去登录</a> <!-- 修改登录页面的链接 -->
+        <a href="login.html">已有账号？去登录</a>
         <div id="message"></div>
     </form>
 </div>
 <script>
-    const form = document.getElementById('frm-register');
-    form.addEventListener("submit", event => {
-        event.preventDefault();
-        const url = ""; // 这里填写您的注册处理URL
-        // 添加JavaScript代码以处理表单提交
-    });
+
 </script>
 </body>
 </html>

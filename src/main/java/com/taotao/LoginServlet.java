@@ -1,4 +1,4 @@
-package servlet;
+package com.taotao;
 
 import com.taotao.UserAuthentication;
 import org.json.JSONObject;
