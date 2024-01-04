@@ -47,14 +47,33 @@
     </insert>
 
     <!-- 购物车下单 -->
-    <insert id="order_on_shop" parameterType="Map">
-        insert into book.shop(user_id,book_id,unit_price,inventory,quantity_purchased,shipments)
-        values(#{user_id},#{book_id},#{unit_price},#{inventory},#{quantity_purchased},0)
+    <insert id="order_on_shop" parameterType="map">
+        insert into book.shop(user_id,book_id,unit_price,inventory,quantity_purchased,shipments,`order`)
+        values(#{user_id},#{book_id},#{unit_price},#{inventory},#{quantity_purchased},0,0)
     </insert>
 
     <!-- 展示个人购物车信息 -->
     <select id="search_shop" resultType="com.taotao.pojo.Tb_shop">
     select * from book.shop where user_id = #{user_id} and `order` = 0;
     </select>
+    <!-- 修改个人信息 -->
+    <update id="update_user_info" parameterType="map">
+        <!-- 更新用户信息 -->
+        UPDATE book.user
+        SET
+        password = #{password},
+        phone_num = #{phone_num},
+        address = #{address},
+        birth = #{birth}
+        WHERE
+        user_id = #{user_id};
+    </update>
+    <!-- 删除购物车信息 -->
+    <delete id="delete_shop_cart" parameterType="map">
+        DELETE FROM book.shop
+        WHERE user_id = #{user_id} AND book_id = #{book_id};
+    </delete>
+
+
 
 </mapper>
