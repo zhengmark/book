@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace:名称空间-->
+<mapper namespace="book">
+
+    <!-- 查询图书 -->
+    <select id="search_book" resultType="com.taotao.pojo.Tb_book_info">
+        select * from book.book_info where book_name = #{book_name} or book_id = #{book_name}
+    </select>
+
+    <!-- 用户登录查询 -->
+    <select id="search_name" resultType="com.taotao.pojo.Tb_user">
+        select * from book.user where user_name = #{user_name} and password = #{password}
+    </select>
+
+    <!-- 用户注册 -->
+    <insert id="insert_info"  parameterType ="map">
+        insert into book.user  (user_id,user_name,password) values (#{user_id},#{user_name} ,#{password} )
+    </insert>
+
+    <!-- 展示所有评价 -->
+    <select id="selectAppraise" resultType="com.taotao.pojo.Tb_appraise">
+        select * from book.appraise
+    </select>
+
+    <!-- 展示所有图书 -->
+    <select id="selectBook" resultType="com.taotao.pojo.Tb_book_info">
+        select * from book.book_info
+    </select>
+
+    <!-- 展示购物车 -->
+    <select id="selectShop" resultType="com.taotao.pojo.Tb_shop">
+        select * from book.shop
+    </select>
+
+    <!-- 展示所有用户 -->
+    <select id="selectUser" resultType="com.taotao.pojo.Tb_user">
+        select * from book.user
+    </select>
+
+    <!-- 插入评价 -->
+    <insert id="insert_appraise"  parameterType ="map">
+        insert into book.appraise values (#{user_id},#{book_id} ,#{appraise}, 0 )
+    </insert>
+
+    <!-- 购物车下单 -->
+    <insert id="order_on_shop" parameterType="Map">
+        insert into book.shop(user_id,book_id,unit_price,inventory,quantity_purchased,shipments)
+        values(#{user_id},#{book_id},#{unit_price},#{inventory},#{quantity_purchased},0)
+    </insert>
+
+    <!-- 展示个人购物车信息 -->
+    <select id="search_shop" resultType="com.taotao.pojo.Tb_shop">
+    select * from book.shop where user_id = #{user_id} and `order` = 0;
+    </select>
+
+</mapper>

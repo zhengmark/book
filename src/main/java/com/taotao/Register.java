@@ -42,7 +42,7 @@ public class Register {
         params.put("password", pwd);
 
 // 执行插入操作
-        List<Tb_user> log = sqlSession.selectList("log.search_name", params);
+        List<Tb_user> log = sqlSession.selectList("book.search_name", params);
         if (log.isEmpty()){
             Map<String, Object> params_re = new HashMap<>();
             params_re.put("user_name", name);
@@ -59,7 +59,7 @@ public class Register {
             // 将随机数字的字符串打印出来
             String id = randomNumbers.toString();
             params_re.put("user_id",id);
-            sqlSession.insert("register.insert_info", params_re);
+            sqlSession.insert("book.insert_info", params_re);
             sqlSession.commit();
             sqlSession.close();
             return Boolean.TRUE;

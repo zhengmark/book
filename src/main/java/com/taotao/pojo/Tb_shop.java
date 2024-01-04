@@ -57,7 +57,7 @@ public class Tb_shop {
 
     @Override
     public String toString() {
-        return "Tb_user{" +
+        return "Tb_Shop{" +
                 "user_id=" + user_id +
                 ", book_id='" + book_id + '\'' +
                 ", unit_price='" + unit_price + '\'' +

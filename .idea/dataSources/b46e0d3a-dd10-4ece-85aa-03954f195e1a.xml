@@ -1056,194 +1056,206 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <foreign-key id="304" parent="297" name="appraise_ibfk_1">
+    <column id="304" parent="297" name="send">
+      <DataType>int|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="305" parent="297" name="appraise_ibkf_1">
       <ColNames>user_id</ColNames>
       <RefColNames>user_id</RefColNames>
       <RefTableName>user</RefTableName>
     </foreign-key>
-    <foreign-key id="305" parent="297" name="appraise_ibfk_2">
+    <foreign-key id="306" parent="297" name="appraise_ibfk_2">
       <ColNames>book_id</ColNames>
       <RefColNames>book_id</RefColNames>
       <RefTableName>book_info</RefTableName>
     </foreign-key>
-    <index id="306" parent="297" name="book_id">
+    <index id="307" parent="297" name="appraise_ibkf_1">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="308" parent="297" name="book_id">
       <ColNames>book_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="307" parent="297" name="PRIMARY">
-      <ColNames>user_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-    </key>
-    <column id="308" parent="298" name="book_name">
+    <column id="309" parent="298" name="book_name">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="309" parent="298" name="category">
+    <column id="310" parent="298" name="category">
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="310" parent="298" name="book_id">
+    <column id="311" parent="298" name="book_id">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="311" parent="298" name="unit_price">
+    <column id="312" parent="298" name="unit_price">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="312" parent="298" name="author">
+    <column id="313" parent="298" name="author">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="313" parent="298" name="introduce">
+    <column id="314" parent="298" name="introduce">
       <DataType>varchar(900)|0s</DataType>
       <Position>6</Position>
     </column>
-    <column id="314" parent="298" name="inventory">
+    <column id="315" parent="298" name="inventory">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <index id="315" parent="298" name="book_name">
+    <column id="316" parent="298" name="picture">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>8</Position>
+    </column>
+    <index id="317" parent="298" name="book_name">
       <ColNames>book_name</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="316" parent="298" name="unit_price_unique_idx">
+    <index id="318" parent="298" name="unit_price_unique_idx">
       <ColNames>unit_price</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="317" parent="298" name="inventory_unique_idx">
+    <index id="319" parent="298" name="inventory_unique_idx">
       <ColNames>inventory</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="318" parent="298" name="PRIMARY">
+    <key id="320" parent="298" name="PRIMARY">
       <ColNames>book_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="319" parent="298" name="book_name">
+    <key id="321" parent="298" name="book_name">
       <ColNames>book_name</ColNames>
       <UnderlyingIndexName>book_name</UnderlyingIndexName>
     </key>
-    <key id="320" parent="298" name="unit_price_unique_idx">
+    <key id="322" parent="298" name="unit_price_unique_idx">
       <ColNames>unit_price</ColNames>
       <UnderlyingIndexName>unit_price_unique_idx</UnderlyingIndexName>
     </key>
-    <key id="321" parent="298" name="inventory_unique_idx">
+    <key id="323" parent="298" name="inventory_unique_idx">
       <ColNames>inventory</ColNames>
       <UnderlyingIndexName>inventory_unique_idx</UnderlyingIndexName>
     </key>
-    <column id="322" parent="299" name="user_id">
+    <column id="324" parent="299" name="user_id">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="323" parent="299" name="book_id">
+    <column id="325" parent="299" name="book_id">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="324" parent="299" name="unit_price">
+    <column id="326" parent="299" name="unit_price">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="325" parent="299" name="inventory">
+    <column id="327" parent="299" name="inventory">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="326" parent="299" name="quantity_purchased">
+    <column id="328" parent="299" name="quantity_purchased">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="327" parent="299" name="shipments">
+    <column id="329" parent="299" name="shipments">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <foreign-key id="328" parent="299" name="shop_ibfk_1">
+    <column id="330" parent="299" name="order">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <foreign-key id="331" parent="299" name="shop_ibfk_1">
       <ColNames>user_id</ColNames>
       <RefColNames>user_id</RefColNames>
       <RefTableName>user</RefTableName>
     </foreign-key>
-    <foreign-key id="329" parent="299" name="shop_ibfk_2">
+    <foreign-key id="332" parent="299" name="shop_ibfk_2">
       <ColNames>book_id</ColNames>
       <RefColNames>book_id</RefColNames>
       <RefTableName>book_info</RefTableName>
     </foreign-key>
-    <foreign-key id="330" parent="299" name="shop_ibfk_3">
+    <foreign-key id="333" parent="299" name="shop_ibfk_3">
       <ColNames>unit_price</ColNames>
       <RefColNames>unit_price</RefColNames>
       <RefTableName>book_info</RefTableName>
     </foreign-key>
-    <foreign-key id="331" parent="299" name="shop_ibfk_4">
+    <foreign-key id="334" parent="299" name="shop_ibfk_4">
       <ColNames>inventory</ColNames>
       <RefColNames>inventory</RefColNames>
       <RefTableName>book_info</RefTableName>
     </foreign-key>
-    <index id="332" parent="299" name="book_id">
+    <index id="335" parent="299" name="book_id">
       <ColNames>book_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="333" parent="299" name="unit_price">
+    <index id="336" parent="299" name="unit_price">
       <ColNames>unit_price</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="334" parent="299" name="inventory">
+    <index id="337" parent="299" name="inventory">
       <ColNames>inventory</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="335" parent="299" name="PRIMARY">
+    <key id="338" parent="299" name="PRIMARY">
       <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="336" parent="300" name="user_id">
+    <column id="339" parent="300" name="user_id">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="337" parent="300" name="user_name">
+    <column id="340" parent="300" name="user_name">
       <DataType>varchar(45)|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="338" parent="300" name="password">
+    <column id="341" parent="300" name="password">
       <DataType>varchar(45)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="339" parent="300" name="phone_num">
+    <column id="342" parent="300" name="phone_num">
       <DataType>varchar(45)|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="340" parent="300" name="address">
+    <column id="343" parent="300" name="address">
       <DataType>varchar(45)|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="341" parent="300" name="birth">
+    <column id="344" parent="300" name="birth">
       <DataType>varchar(45)|0s</DataType>
       <Position>6</Position>
     </column>
-    <index id="342" parent="300" name="user_id_unique_idx">
+    <index id="345" parent="300" name="user_id_unique_idx">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="343" parent="300" name="PRIMARY">
+    <key id="346" parent="300" name="PRIMARY">
       <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="344" parent="300" name="user_id_unique_idx">
+    <key id="347" parent="300" name="user_id_unique_idx">
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>user_id_unique_idx</UnderlyingIndexName>
     </key>

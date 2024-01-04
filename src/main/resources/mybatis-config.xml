@@ -22,5 +22,6 @@
         <mapper resource="log.xml"/>
         <mapper resource="register.xml"/>
         <mapper resource="search_book.xml"/>
+        <mapper resource="Book.xml"/>
     </mappers>
 </configuration>
