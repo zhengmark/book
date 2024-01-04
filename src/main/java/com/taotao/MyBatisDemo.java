@@ -38,10 +38,10 @@ public class MyBatisDemo {
                 Integer order = 0;
 
 //这是测试注册函数
-                Register re = new Register();
+                UserRegistrar re = new UserRegistrar();
                 String name = "zheng";
                 String pwd = "22222";
-                boolean a1 = re.register(name,pwd);
+                boolean a1 = re.registerUser(name,pwd);
                 System.out.println(a1);
 
 //这是测试登录函数

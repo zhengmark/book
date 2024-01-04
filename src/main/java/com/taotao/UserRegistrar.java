@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class Register {
+public class UserRegistrar {
     /*
     注册功能
     通过调用内部register，传入参数username，password
@@ -19,15 +19,15 @@ public class Register {
     返回类型为Boolean
      */
 
-    public Boolean register(String name, String pwd) throws IOException {
+    public Boolean registerUser(String name, String pwd) throws IOException {
         try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
             Map<String, Object> params = new HashMap<>();
             params.put("user_name", name);
             params.put("password", pwd);
 
             // 执行查询操作
-            List<Tb_user> log = sqlSession.selectList("book.search_name", params);
-            if (log.isEmpty()) {
+            List<Tb_user> userList = sqlSession.selectList("book.search_name", params);
+            if (userList.isEmpty()) {
                 String userId = generateUserId(); // 生成随机用户ID
                 params.put("user_id", userId);
                 sqlSession.insert("book.insert_info", params);
