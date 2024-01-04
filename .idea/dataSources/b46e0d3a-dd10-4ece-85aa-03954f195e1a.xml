@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="@localhost [2]">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.32">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.49">
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -1042,22 +1042,22 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
     <column id="301" parent="297" name="user_id">
-      <DataType>varchar(45)|0s</DataType>
+      <DasType>varchar(45)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="302" parent="297" name="book_id">
-      <DataType>varchar(45)|0s</DataType>
+      <DasType>varchar(45)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="303" parent="297" name="appraise">
-      <DataType>varchar(300)|0s</DataType>
+      <DasType>varchar(300)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
     <column id="304" parent="297" name="send">
-      <DataType>int|0s</DataType>
+      <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
     <foreign-key id="305" parent="297" name="appraise_ibkf_1">
@@ -1079,41 +1079,41 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Type>btree</Type>
     </index>
     <column id="309" parent="298" name="book_name">
-      <DataType>varchar(45)|0s</DataType>
+      <DasType>varchar(45)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="310" parent="298" name="category">
-      <DataType>varchar(50)|0s</DataType>
+      <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="311" parent="298" name="book_id">
-      <DataType>varchar(100)|0s</DataType>
+      <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
     <column id="312" parent="298" name="unit_price">
-      <DataType>int|0s</DataType>
+      <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
     <column id="313" parent="298" name="author">
-      <DataType>varchar(45)|0s</DataType>
+      <DasType>varchar(45)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
     <column id="314" parent="298" name="introduce">
-      <DataType>varchar(900)|0s</DataType>
+      <DasType>varchar(900)|0s</DasType>
       <Position>6</Position>
     </column>
     <column id="315" parent="298" name="inventory">
-      <DataType>int|0s</DataType>
+      <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
     <column id="316" parent="298" name="picture">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>8</Position>
     </column>
     <index id="317" parent="298" name="book_name">
@@ -1132,54 +1132,51 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Unique>1</Unique>
     </index>
     <key id="320" parent="298" name="PRIMARY">
-      <ColNames>book_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>book_id</UnderlyingIndexColNames>
     </key>
     <key id="321" parent="298" name="book_name">
-      <ColNames>book_name</ColNames>
       <UnderlyingIndexName>book_name</UnderlyingIndexName>
     </key>
     <key id="322" parent="298" name="unit_price_unique_idx">
-      <ColNames>unit_price</ColNames>
       <UnderlyingIndexName>unit_price_unique_idx</UnderlyingIndexName>
     </key>
     <key id="323" parent="298" name="inventory_unique_idx">
-      <ColNames>inventory</ColNames>
       <UnderlyingIndexName>inventory_unique_idx</UnderlyingIndexName>
     </key>
     <column id="324" parent="299" name="user_id">
-      <DataType>varchar(45)|0s</DataType>
+      <DasType>varchar(45)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="325" parent="299" name="book_id">
-      <DataType>varchar(45)|0s</DataType>
+      <DasType>varchar(45)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="326" parent="299" name="unit_price">
-      <DataType>int|0s</DataType>
+      <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
     <column id="327" parent="299" name="inventory">
-      <DataType>int|0s</DataType>
+      <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
     <column id="328" parent="299" name="quantity_purchased">
-      <DataType>int|0s</DataType>
+      <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
     <column id="329" parent="299" name="shipments">
-      <DataType>int|0s</DataType>
+      <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
     <column id="330" parent="299" name="order">
-      <DataType>int|0s</DataType>
+      <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
@@ -1226,28 +1223,28 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Turn>before-row</Turn>
     </trigger>
     <column id="340" parent="300" name="user_id">
-      <DataType>varchar(45)|0s</DataType>
+      <DasType>varchar(45)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="341" parent="300" name="user_name">
-      <DataType>varchar(45)|0s</DataType>
+      <DasType>varchar(45)|0s</DasType>
       <Position>2</Position>
     </column>
     <column id="342" parent="300" name="password">
-      <DataType>varchar(45)|0s</DataType>
+      <DasType>varchar(45)|0s</DasType>
       <Position>3</Position>
     </column>
     <column id="343" parent="300" name="phone_num">
-      <DataType>varchar(45)|0s</DataType>
+      <DasType>varchar(45)|0s</DasType>
       <Position>4</Position>
     </column>
     <column id="344" parent="300" name="address">
-      <DataType>varchar(45)|0s</DataType>
+      <DasType>varchar(45)|0s</DasType>
       <Position>5</Position>
     </column>
     <column id="345" parent="300" name="birth">
-      <DataType>varchar(45)|0s</DataType>
+      <DasType>varchar(45)|0s</DasType>
       <Position>6</Position>
     </column>
     <index id="346" parent="300" name="user_id_unique_idx">
@@ -1256,12 +1253,11 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Unique>1</Unique>
     </index>
     <key id="347" parent="300" name="PRIMARY">
-      <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>user_id</UnderlyingIndexColNames>
     </key>
     <key id="348" parent="300" name="user_id_unique_idx">
-      <ColNames>user_id</ColNames>
       <UnderlyingIndexName>user_id_unique_idx</UnderlyingIndexName>
     </key>
   </database-model>
