@@ -2,17 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>图书购买系统</title>
-    <!-- 添加CSS和JavaScript的链接 -->
+    <link rel="stylesheet" href="index.css"> <!-- 引用外部CSS文件 -->
 </head>
 <body>
-    <h1>欢迎来到图书购买系统</h1>
-    <div id="user-info">
-        <a href="login.html" id="login-link">登录</a>
-        <a href="register.html" id="register-link">注册</a>
+<div class="container">
+    <header class="header">
+        <div class="logo">图书管理系统</div>
+        <div>
+            <a href="login.html" class="login-button">登录</a>
+            <a href="register.html" class="login-button">注册</a>
+            <a href="cart.html" class="login-button">购物车</a>
+        </div>
+    </header>
+
+    <div class="search-bar">
+        <label>
+            <input type="text" class="search-input" placeholder="搜索商品...">
+        </label>
+        <button class="search-button">搜索</button>
     </div>
-    <a href="cart.html">购物车</a>
-    <!-- 其他页面内容 -->
-    <script src="main.js"></script>
+
+    <div class="book-grid">
+        <!-- 在这里添加书籍卡片 -->
+        <div class="book-card">
+            <img src="3.jpg" alt="图书1">
+            <h3>图书1</h3>
+            <p>作者：...</p>
+            <p>价格：...</p>
+        </div>
+        <!-- 添加更多图书卡片 -->
+    </div>
+</div>
+<script src="main.js"></script>
 </body>
 </html>

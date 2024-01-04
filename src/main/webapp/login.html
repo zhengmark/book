@@ -2,21 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>登录 - 图书购买系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="login.css"> <!-- 引用外部CSS -->
 </head>
 <body>
-<h2>登录</h2>
-<form id="loginForm">
-    用户名: <label>
-    <input type="text" name="username">
-</label><br>
-    密码: <label>
-    <input type="password" name="password">
-</label><br>
-    <input type="button" value="登录" onclick="login()">
-    <br>
-    <a href="forgot-password.html">忘记密码</a> | <a href="register.html">注册</a>
-</form>
-<script src="login.js"></script>
+<div class="box">
+    <h1>用户登录</h1>
+    <form id="frm login">
+        <label for="username">登录账号</label>
+        <input type="text" name="username" id="username" required>
+        <label for="password">登录密码</label>
+        <input type="password" name="password" id="password" required> <!-- 修改为密码输入框 -->
+        <button type="submit">登录</button>
+        <a href="register.html">还没有账号？去注册一个</a> <!-- 修改注册页面的链接 -->
+        <div id="message"></div>
+    </form>
+</div>
+<script>
+    const form = document.getElementById('frm login');
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+        const url = ""; // 这里填写您的登录处理URL
+        // 添加JavaScript代码以处理表单提交
+    });
+</script>
 </body>
 </html>
