@@ -22,7 +22,6 @@ public class ShopViewer {
 
         //2.获取SqlSession对象，用它来执行sql
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        Random random = new Random();
 
         if (order == 0){
             Map<String, Object> params = new HashMap<>();

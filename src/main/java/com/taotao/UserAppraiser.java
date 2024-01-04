@@ -22,6 +22,20 @@ public class UserAppraiser {
             // 执行插入操作
             sqlSession.insert("book.insert_appraise", params);
             sqlSession.commit();
+            sqlSession.close();
+        }
+    }
+    //审核评价
+    public void judge_appraise(String user_id, String book_id) throws IOException {
+        try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
+            Map<String, Object> params = new HashMap<>();
+            params.put("user_id", user_id);
+            params.put("book_id", book_id);
+
+            // 执行插入操作
+            sqlSession.update("book.judge_appraise", params);
+            sqlSession.commit();
+            sqlSession.close();
         }
     }
 }

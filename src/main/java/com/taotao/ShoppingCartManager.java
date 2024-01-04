@@ -15,8 +15,8 @@ import java.util.Map;
 import java.util.Random;
 
 public class ShoppingCartManager {
-        /*
-    购物车下单功能
+    /*
+    添加到购物车功能
     通过调用内部user_appraise，传入参数user_id,book_id,appraise
     在评价表中插入以上信息
      */
@@ -31,10 +31,10 @@ public class ShoppingCartManager {
             SqlSession sqlSession = sqlSessionFactory.openSession();
 
 // 执行插入操作
-            Book_search book_search = new Book_search();
+            BookSearchService book_search = new BookSearchService();
 //            (user_id,book_id,unit_price,inventory,quantity_purchased,shipments)
 
-            Tb_book_info book_info = book_search.book_search(book_id);
+            Tb_book_info book_info = book_search.searchBook(book_id);
 //            System.out.println(book_info);
             Map<String, Object> params = new HashMap<>();
             params.put("user_id", user_id);
@@ -61,8 +61,8 @@ public class ShoppingCartManager {
             SqlSession sqlSession = sqlSessionFactory.openSession();
 
 // 执行插入操作
-            Book_search book_search = new Book_search();
-            Tb_book_info book_info = book_search.book_search(book_id);
+            BookSearchService book_search = new BookSearchService();
+            Tb_book_info book_info = book_search.searchBook(book_id);
             Map<String, Object> params = new HashMap<>();
             params.put("user_id",user_id);
             params.put("book_id",book_id);
@@ -70,5 +70,22 @@ public class ShoppingCartManager {
 
             sqlSession.commit();
             sqlSession.close();
+        }
+        //购物车下单功能
+        public void order_check(String user_id,String book_id)throws IOException{
+            String resource = "mybatis-config.xml"; //相对路径
+            InputStream inputStream = Resources.getResourceAsStream(resource);
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+            //2.获取SqlSession对象，用它来执行sql
+            SqlSession sqlSession = sqlSessionFactory.openSession();
+            Map<String, Object> params = new HashMap<>();
+            params.put("user_id",user_id);
+            params.put("book_id",book_id);
+            System.out.println(params);
+            sqlSession.update("book.check_order",params);
+
+            sqlSession.commit();
+            sqlSession.close();
+
         }
 }
