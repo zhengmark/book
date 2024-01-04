@@ -6,13 +6,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class User_appraise {
+public class UserAppraiser {
     /*
     用户评价功能
     通过调用内部user_appraise，传入参数user_id, book_id, appraise
     在评价表中插入以上信息
      */
-    public void user_appraise(String user_id, String book_id, String appraise) throws IOException {
+    public void addUserBookReview(String user_id, String book_id, String appraise) throws IOException {
         try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
             Map<String, Object> params = new HashMap<>();
             params.put("user_id", user_id);

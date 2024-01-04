@@ -66,17 +66,17 @@ public class MyBatisDemo {
                     params_insert_appraise.put("appraise",appraise);
                     params_insert_appraise.put("book_id",book_id);
                     params_insert_appraise.put("user_id",user_id);
-                    User_appraise user_appraise = new User_appraise();
-                    user_appraise.user_appraise(user_id,book_id,appraise);
+                    UserAppraiser user_appraiser = new UserAppraiser();
+                    user_appraiser.addUserBookReview(user_id,book_id,appraise);
                     System.out.println(appraise_all);
 
 //插入购物车信息
-                    Shop shop_search = new Shop();
-                    shop_search.shop(user_id,book_id,quantity_purchased);
+                    ShoppingCartManager shoppingCartManager_search = new ShoppingCartManager();
+                    shoppingCartManager_search.addItemsToCart(user_id,book_id,quantity_purchased);
 
 //查询购物车信息
-                    Show_shop show_shop = new Show_shop();
-                    show_shop.show_shop(user_id,order);
+                    ShopViewer shopViewer = new ShopViewer();
+                    shopViewer.show_shop(user_id,order);
 
 
 // 提交事务（如果需要的话）

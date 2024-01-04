@@ -1,6 +1,5 @@
 package com.taotao;
 
-import com.taotao.pojo.Tb_appraise;
 import com.taotao.pojo.Tb_shop;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -14,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class Show_shop {
+public class ShopViewer {
     public void show_shop(String user_id,Integer order)throws IOException {
         //1.加载mybatis的核心配置文件，获取 SqlSessionFactory
         String resource = "mybatis-config.xml"; //相对路径
