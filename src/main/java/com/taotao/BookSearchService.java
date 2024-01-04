@@ -1,9 +1,13 @@
 package com.taotao;
 
 import com.taotao.pojo.Tb_book_info;
+import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +22,7 @@ public class BookSearchService {
     返回类型为Tb_book_info
      */
 
+    //查询图书信息
     public Tb_book_info searchBook(String bookName) throws IOException {
         try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
             Map<String, Object> params = new HashMap<>();
@@ -35,4 +40,51 @@ public class BookSearchService {
             }
         }
     }
+    //插入图书信息
+    public void insertBook(String book_name,String category,String book_id,Integer unit_price,String author,String introduce,Integer inventory,String picture) throws IOException {
+        try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
+            Map<String, Object> params = new HashMap<>();
+            params.put("book_name", book_name);
+            params.put("category",category);
+            params.put("book_id",book_id);
+            params.put("unit_price",unit_price);
+            params.put("author",author);
+            params.put("introduce",introduce);
+            params.put("inventory",inventory);
+            params.put("picture",picture);
+
+            // 执行查询操作
+            sqlSession.insert("book.insert_book_info", params);
+            sqlSession.commit();
+            sqlSession.close();
+        }
+    }
+    //发货
+    public void update_book_num (String user_id,String book_id,int quantity_purchased)throws IOException{
+        String resource = "mybatis-config.xml"; //相对路径
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        Map<String, Object> params = new HashMap<>();
+        params.put("book_id",book_id);
+        params.put("user_id",user_id);
+        params.put("quantity_purchased",quantity_purchased);
+        sqlSession.update("book.update_book_num",params);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    //补货
+    public void add_book_inventory (String book_id,int add_inventory)throws IOException{
+        String resource = "mybatis-config.xml"; //相对路径
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        Map<String, Object> params = new HashMap<>();
+        params.put("book_id",book_id);
+        params.put("add_inventory",add_inventory);
+        sqlSession.update("book.add_book_inventory",params);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
 }
