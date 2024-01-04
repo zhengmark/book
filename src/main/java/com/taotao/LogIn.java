@@ -1,8 +1,5 @@
 package com.taotao;
 
-import com.taotao.pojo.Tb_appraise;
-import com.taotao.pojo.Tb_book_info;
-import com.taotao.pojo.Tb_shop;
 import com.taotao.pojo.Tb_user;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -16,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class Log {
+public class LogIn {
     /*
     登录功能
     通过调用内部log，传入参数username，password
@@ -26,7 +23,7 @@ public class Log {
     返回类型为String
      */
 
-    public String log(String name,String pwd)throws IOException {
+    public String logIn(String name, String pwd)throws IOException {
 
         //1.加载mybatis的核心配置文件，获取 SqlSessionFactory
         String resource = "mybatis-config.xml"; //相对路径
