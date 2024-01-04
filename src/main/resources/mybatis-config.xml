@@ -21,5 +21,6 @@
         <mapper resource="Tb_shop.xml"/>
         <mapper resource="log.xml"/>
         <mapper resource="register.xml"/>
+        <mapper resource="search_book.xml"/>
     </mappers>
 </configuration>

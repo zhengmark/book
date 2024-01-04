@@ -65,10 +65,6 @@ public class Log {
         }
 
 // 提交事务（如果需要的话）
-        sqlSession.commit();
-        System.out.println(log);
-
-        sqlSession.close();
         return id;
     }
 

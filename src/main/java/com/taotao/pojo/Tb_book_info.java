@@ -8,6 +8,7 @@ public class Tb_book_info {
     private String author;
     private String introduce;
     private Integer inventory;
+    private String picture;
 
     public String getId() {
         return book_id;
@@ -65,6 +66,12 @@ public class Tb_book_info {
         this.inventory = inventory;
     }
 
+    public String getPicture() {return picture;}
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
     @Override
     public String toString() {
         return "Tb_book_info{" +
@@ -73,6 +80,7 @@ public class Tb_book_info {
                 ", category='" + category + '\'' +
                 ", author='" + author + '\'' +
                 ", introduce='" + introduce + '\'' +
+                ", picture='" + picture + '\'' +
                 '}';
     }
 }
