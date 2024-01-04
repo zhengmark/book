@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Book_search {
+public class BookSearchService {
     /*
     图书查询功能
     通过调用内部book_search，传入参数input
@@ -18,10 +18,10 @@ public class Book_search {
     返回类型为Tb_book_info
      */
 
-    public Tb_book_info book_search(String input) throws IOException {
+    public Tb_book_info searchBook(String bookName) throws IOException {
         try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
             Map<String, Object> params = new HashMap<>();
-            params.put("book_name", input);
+            params.put("book_name", bookName);
 
             // 执行查询操作
             List<Tb_book_info> bookSearch = sqlSession.selectList("search_book.search_book", params);
