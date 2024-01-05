@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace:名称空间-->
+<mapper namespace="search_book">
+    <select id="search_book" resultType="com.taotao.pojo.Tb_book_info">
+        select * from book.book_info where book_name = #{book_name} or book_id = #{book_name}
+    </select>
+
+</mapper>
+

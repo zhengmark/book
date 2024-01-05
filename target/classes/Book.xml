@@ -119,4 +119,6 @@
         set appraise.send = 1
         where appraise.user_id = #{user_id} and appraise.book_id = #{book_id}
     </update>
+
+
 </mapper>
