@@ -59,7 +59,7 @@
 
         where user_id = #{user_id} and book_id = #{book_id};
     </update>
-
+    <!-- 通过 -->
     <!-- 展示个人购物车信息 -->
     <select id="search_shop" resultType="com.taotao.pojo.Tb_shop">
     select * from book.shop where user_id = #{user_id} and `order` = 0;

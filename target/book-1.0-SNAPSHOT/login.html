@@ -25,22 +25,21 @@
         event.preventDefault();
 
     let xhr = new XMLHttpRequest();
-        let url = "http://localhost:8080/login"; // 更改为您的Servlet URL
-        xhr.open("POST", url, true);
+        xhr.open("POST", "LoginServlet", true);
         xhr.setRequestHeader("Content-Type", "application/json");
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 let response = JSON.parse(xhr.responseText);
-                // response.userId = undefined;
-                if (response.userId !== "111111") {
-                    document.cookie = "userId=" + response.userId;
+                if (response.user_id !== "111111") {
+                    document.cookie = "userId=" + response.user_id;
                     window.location.href = "index.html";
                 } else {
                     document.getElementById('message').innerText = "登录失败";
                 }
             }
-        };
+        }
+        
 
         let data = JSON.stringify({
             "username": document.getElementById('username').value,

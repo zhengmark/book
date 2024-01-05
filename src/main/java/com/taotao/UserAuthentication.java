@@ -17,10 +17,10 @@ import java.util.Map;
 返回类型为String
  */
 public class UserAuthentication {
-    public String authenticateUser(String username, String password) throws IOException {
+    public String authenticateUser(String user_name, String password) throws IOException {
         try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
             Map<String, Object> params = new HashMap<>();
-            params.put("user_name", username);
+            params.put("user_name", user_name);
             params.put("password", password);
 
             // 执行查询操作

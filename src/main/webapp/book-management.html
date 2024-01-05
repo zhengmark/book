@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Management</title>
+    <script>
+        function insertBook() {
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "BookManagementServlet", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    let response = JSON.parse(xhr.responseText);
+                    alert(response.message);
+                }
+            };
+
+            let bookData = {
+                book_name: document.getElementById("book_name").value,
+                category: document.getElementById("category").value,
+                book_id: document.getElementById("book_id").value,
+                unit_price: parseInt(document.getElementById("unit_price").value),
+                author: document.getElementById("author").value,
+                introduce: document.getElementById("introduce").value,
+                inventory: parseInt(document.getElementById("inventory").value),
+                picture: document.getElementById("picture").value,
+                action: "insert"
+            };
+
+            xhr.send(JSON.stringify(bookData));
+        }
+    </script>
+</head>
+<body>
+    <h2>Book Management</h2>
+    <form onsubmit="insertBook(); return false;">
+        <label for="book_name"></label><input type="text" id="book_name" placeholder="Book Name" required><br>
+        <label for="category"></label><input type="text" id="category" placeholder="Category" required><br>
+        <label for="book_id"></label><input type="text" id="book_id" placeholder="Book ID" required><br>
+        <label for="unit_price"></label><input type="number" id="unit_price" placeholder="Unit Price" required><br>
+        <label for="author"></label><input type="text" id="author" placeholder="Author" required><br>
+        <label for="introduce"></label><textarea id="introduce" placeholder="Introduction" required></textarea><br>
+        <label for="inventory"></label><input type="number" id="inventory" placeholder="Inventory" required><br>
+        <label for="picture"></label><input type="text" id="picture" placeholder="Picture URL" required><br>
+        <input type="submit" value="Insert Book">
+    </form>
+</body>
+</html>

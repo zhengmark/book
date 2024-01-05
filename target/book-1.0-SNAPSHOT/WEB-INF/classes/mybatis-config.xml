@@ -10,8 +10,8 @@
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql:///book?useSSL=false"/>
                 <property name="username" value="root"/>
-<!--                <property name="password" value="20021114"/>-->
-                <property name="password" value="vTDwWTG2a4lqD8X"/>
+                <property name="password" value="20021114"/>
+<!--                <property name="password" value="vTDwWTG2a4lqD8X"/>-->
             </dataSource>
         </environment>
     </environments>

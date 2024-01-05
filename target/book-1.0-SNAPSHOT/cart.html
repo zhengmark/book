@@ -7,9 +7,9 @@
         // 假设用户ID存储在Cookies中
         function getCookie(name) {
             let cookieArray = document.cookie.split('; ');
-            for(let cookie of cookieArray) {
+            for (let cookie of cookieArray) {
                 let [cookieName, cookieValue] = cookie.split('=');
-                if(cookieName === name) {
+                if (cookieName === name) {
                     return cookieValue;
                 }
             }
@@ -24,7 +24,7 @@
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ userId: userId, bookId: bookId, quantityPurchased: quantity })
+                body: JSON.stringify({userId: userId, bookId: bookId, quantityPurchased: quantity})
             })
                 .then(response => response.json())
                 .then(data => alert("添加到购物车: " + data.message))
@@ -37,7 +37,7 @@
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ userId: userId, bookId: bookId })
+                body: JSON.stringify({userId: userId, bookId: bookId})
             })
                 .then(response => response.json())
                 .then(data => alert("从购物车中删除: " + data.message))
@@ -50,22 +50,61 @@
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ userId: userId, bookId: bookId })
+                body: JSON.stringify({userId: userId, bookId: bookId})
             })
                 .then(response => response.json())
                 .then(data => alert("下单: " + data.message))
                 .catch(error => console.error('Error:', error));
         }
+
+        function showCart() {
+            fetch('/book_war/ShowCartServlet', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({userId: userId})
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.cartItems) {
+                        updateCartDisplay(data.cartItems);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function updateCartDisplay(cartItems) {
+            // 清空当前购物车显示
+            let cartDisplay = document.getElementById('cartDisplay');
+            cartDisplay.innerHTML = '';
+
+            // 添加购物车商品到显示区域
+            cartItems.forEach(item => {
+                let itemElement = document.createElement('div');
+                itemElement.innerHTML = `书籍ID: ${item.bookId}, 数量: ${item.quantity}`;
+                cartDisplay.appendChild(itemElement);
+            });
+        }
+
+        // 页面加载时显示购物车内容
+        window.onload = function () {
+            showCart();
+        };
     </script>
 </head>
 <body>
 <h2>图书购物车</h2>
 
 <!-- 示例用的输入 -->
-书籍ID: <label for="bookId"></label><input type="text" id="bookId" /><br />
-数量: <label for="quantity"></label><input type="number" id="quantity" /><br />
-<button onclick="addToCart(document.getElementById('bookId').value, document.getElementById('quantity').value)">添加到购物车</button>
+书籍ID: <label for="bookId"></label><input type="text" id="bookId"/><br/>
+数量: <label for="quantity"></label><input type="number" id="quantity"/><br/>
+<button onclick="addToCart(document.getElementById('bookId').value, document.getElementById('quantity').value)">添加到购物车
+</button>
 <button onclick="removeFromCart(document.getElementById('bookId').value)">从购物车中删除</button>
 <button onclick="placeOrder(document.getElementById('bookId').value)">下单</button>
+
+<!-- 购物车显示区域 -->
+<div id="cartDisplay"></div>
 </body>
 </html>

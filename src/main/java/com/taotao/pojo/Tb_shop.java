@@ -66,5 +66,14 @@ public class Tb_shop {
                 ", shipments='" + shipments + '\'' +
                 '}';
     }
+
+    public String getBookId() {
+        return book_id;
+    }
+
+    public Integer getQuantityPurchased() {
+        return quantity_purchased;
+    }
+
 }
 

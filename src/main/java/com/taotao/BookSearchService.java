@@ -52,9 +52,32 @@ public class BookSearchService {
             // 执行查询操作
             sqlSession.insert("book.insert_book_info", params);
             sqlSession.commit();
-            sqlSession.close();
         }
     }
+    public void updateBook(String book_id, String book_name, String category, Integer unit_price, String author, String introduce, Integer inventory, String picture) throws IOException {
+        try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
+            Map<String, Object> params = new HashMap<>();
+            params.put("book_id", book_id);
+            params.put("book_name", book_name);
+            params.put("category", category);
+            params.put("unit_price", unit_price);
+            params.put("author", author);
+            params.put("introduce", introduce);
+            params.put("inventory", inventory);
+            params.put("picture", picture);
+
+            sqlSession.update("book.update_book_info", params);
+            sqlSession.commit();
+        }
+    }
+    public void deleteBook(String bookId) throws IOException {
+        try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
+            sqlSession.delete("book.delete_book_info", bookId);
+            sqlSession.commit();
+        }
+    }
+
+
     // 发货
     public void updateBookQuantity(String userId, String bookId, int quantityPurchased) throws IOException {
         try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
