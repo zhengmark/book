@@ -22,7 +22,6 @@ public class UserAppraiser {
             // 执行插入操作
             sqlSession.insert("book.insert_appraise", params);
             sqlSession.commit();
-            sqlSession.close();
         }
     }
     //审核评价
@@ -35,7 +34,6 @@ public class UserAppraiser {
             // 执行插入操作
             sqlSession.update("book.judge_appraise", params);
             sqlSession.commit();
-            sqlSession.close();
         }
     }
 }

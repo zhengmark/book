@@ -19,11 +19,11 @@ public class UserRegistrar {
     返回类型为Boolean
      */
 
-    public Boolean registerUser(String name, String pwd) throws IOException {
+    public Boolean registerUser(String username, String password) throws IOException {
         try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
             Map<String, Object> params = new HashMap<>();
-            params.put("user_name", name);
-            params.put("password", pwd);
+            params.put("user_name", username);
+            params.put("password", password);
 
             // 执行查询操作
             List<Tb_user> userList = sqlSession.selectList("book.search_name", params);
@@ -46,6 +46,6 @@ public class UserRegistrar {
             int randomNumber = random.nextInt(10);
             randomNumbers.append(randomNumber);
         }
-        return randomNumbers.toString();s
+        return randomNumbers.toString();
     }
 }
