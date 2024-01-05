@@ -46,6 +46,6 @@ public class UserRegistrar {
             int randomNumber = random.nextInt(10);
             randomNumbers.append(randomNumber);
         }
-        return randomNumbers.toString();
+        return randomNumbers.toString();s
     }
 }

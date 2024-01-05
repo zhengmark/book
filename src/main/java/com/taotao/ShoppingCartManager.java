@@ -1,91 +1,51 @@
 package com.taotao;
 
 import com.taotao.pojo.Tb_book_info;
-import com.taotao.pojo.Tb_user;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Random;
+import org.apache.ibatis.session.SqlSession;
 
 public class ShoppingCartManager {
-    /*
-    添加到购物车功能
-    通过调用内部user_appraise，传入参数user_id,book_id,appraise
-    在评价表中插入以上信息
-     */
-        public void addItemsToCart(String user_id, String book_id, Integer quantity_purchased)throws IOException {
-
-            //1.加载mybatis的核心配置文件，获取 SqlSessionFactory
-            String resource = "mybatis-config.xml"; //相对路径
-            InputStream inputStream = Resources.getResourceAsStream(resource);
-            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-
-            //2.获取SqlSession对象，用它来执行sql
-            SqlSession sqlSession = sqlSessionFactory.openSession();
-
-// 执行插入操作
+    // 添加到购物车功能
+    public void addItemsToCart(String userId, String bookId, Integer quantityPurchased) throws IOException {
+        try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
             BookSearchService book_search = new BookSearchService();
-//            (user_id,book_id,unit_price,inventory,quantity_purchased,shipments)
+            Tb_book_info book_info = book_search.searchBook(bookId);
 
-            Tb_book_info book_info = book_search.searchBook(book_id);
-//            System.out.println(book_info);
             Map<String, Object> params = new HashMap<>();
-            params.put("user_id", user_id);
-            params.put("book_id", book_id);
+            params.put("user_id", userId);
+            params.put("book_id", bookId);
             params.put("unit_price", book_info.getUnit_price());
             params.put("inventory", book_info.getInventory());
-            params.put("quantity_purchased", quantity_purchased);
+            params.put("quantity_purchased", quantityPurchased);
             sqlSession.insert("book.order_on_shop", params);
+
             sqlSession.commit();
-            sqlSession.close();
         }
+    }
 
-        /*
-        购物车删除功能，
-        传入参数user_id，book_id
-        将数据库中的对应行删除
-         */
-        public void deleteItemsCart(String user_id, String book_id)throws IOException {
-            String resource = "mybatis-config.xml"; //相对路径
-            InputStream inputStream = Resources.getResourceAsStream(resource);
-            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-
-            //2.获取SqlSession对象，用它来执行sql
-            SqlSession sqlSession = sqlSessionFactory.openSession();
-
-// 执行插入操作
-            BookSearchService book_search = new BookSearchService();
-            Tb_book_info book_info = book_search.searchBook(book_id);
+    // 购物车删除功能
+    public void removeItemFromCart(String userId, String bookId) throws IOException {
+        try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
             Map<String, Object> params = new HashMap<>();
-            params.put("user_id",user_id);
-            params.put("book_id",book_id);
+            params.put("user_id", userId);
+            params.put("book_id", bookId);
             sqlSession.delete("book.delete_shop_cart", params);
 
             sqlSession.commit();
-            sqlSession.close();
         }
-        //购物车下单功能
-        public void order_check(String user_id,String book_id)throws IOException{
-            String resource = "mybatis-config.xml"; //相对路径
-            InputStream inputStream = Resources.getResourceAsStream(resource);
-            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-            //2.获取SqlSession对象，用它来执行sql
-            SqlSession sqlSession = sqlSessionFactory.openSession();
+    }
+
+    // 购物车下单功能
+    public void placeOrder(String userId, String bookId) throws IOException {
+        try (SqlSession sqlSession = MyBatisUtil.getSqlSession()) {
             Map<String, Object> params = new HashMap<>();
-            params.put("user_id",user_id);
-            params.put("book_id",book_id);
-            System.out.println(params);
-            sqlSession.update("book.check_order",params);
+            params.put("user_id", userId);
+            params.put("book_id", bookId);
+            sqlSession.update("book.check_order", params);
 
             sqlSession.commit();
-            sqlSession.close();
-
         }
+    }
 }
