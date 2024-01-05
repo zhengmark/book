@@ -33,18 +33,15 @@ public class RegisterServlet extends HttpServlet {
 
         String username = requestData.getString("username");
         String password = requestData.getString("password");
-        String phone = requestData.getString("phone");
-        String address = requestData.getString("address");
-        String birth = requestData.getString("birth");
 
-        UserInfoUpdater updater = new UserInfoUpdater();
+        UserRegistrar registrar = new UserRegistrar();
         JSONObject jsonResponse = new JSONObject();
         try {
-            if (updater.updateUserInformation(username, password, phone, address, birth)) {
+            if (registrar.registerUser(username, password)) {
                 jsonResponse.put("success", true);
             } else {
                 jsonResponse.put("success", false);
-                jsonResponse.put("message", "无法更新用户信息");
+                jsonResponse.put("message", "用户名已存在");
             }
         } catch (Exception e) {
             jsonResponse.put("success", false);
