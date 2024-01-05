@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace:名称空间-->
+<mapper namespace="book">
+
+    <!-- 查询图书 -->
+    <select id="search_book" resultType="com.taotao.pojo.Tb_book_info">
+        select * from book.book_info where book_name = #{book_name} or book_id = #{book_name}
+    </select>
+
+    <!-- 用户登录查询 -->
+    <select id="search_name" resultType="com.taotao.pojo.Tb_user">
+        select * from book.user where user_name = #{user_name} and password = #{password}
+    </select>
+
+    <!-- 用户注册 -->
+    <insert id="insert_info"  parameterType ="map">
+        insert into book.user  (user_id,user_name,password) values (#{user_id},#{user_name} ,#{password} )
+    </insert>
+
+    <!-- 展示所有评价 -->
+    <select id="selectAppraise" resultType="com.taotao.pojo.Tb_appraise">
+        select * from book.appraise
+    </select>
+
+    <!-- 展示所有图书 -->
+    <select id="selectBook" resultType="com.taotao.pojo.Tb_book_info">
+        select * from book.book_info
+    </select>
+
+    <!-- 展示购物车 -->
+    <select id="selectShop" resultType="com.taotao.pojo.Tb_shop">
+        select * from book.shop
+    </select>
+
+    <!-- 展示所有用户 -->
+    <select id="selectUser" resultType="com.taotao.pojo.Tb_user">
+        select * from book.user
+    </select>
+
+    <!-- 插入评价 -->
+    <insert id="insert_appraise"  parameterType ="map">
+        insert into book.appraise values (#{user_id},#{book_id} ,#{appraise}, 0 )
+    </insert>
+
+    <!-- 添加到购物车 -->
+    <insert id="order_on_shop" parameterType="map">
+        insert into book.shop(user_id,book_id,unit_price,inventory,quantity_purchased,shipments,`order`)
+        values(#{user_id},#{book_id},#{unit_price},#{inventory},#{quantity_purchased},0,0)
+    </insert>
+
+    <!-- 下单 -->
+    <update id="check_order" parameterType="map">
+        update book.shop
+        set shop.`order` =  1
+
+        where user_id = #{user_id} and book_id = #{book_id};
+    </update>
+
+    <!-- 展示个人购物车信息 -->
+    <select id="search_shop" resultType="com.taotao.pojo.Tb_shop">
+    select * from book.shop where user_id = #{user_id} and `order` = 0;
+    </select>
+
+    <!-- 修改个人信息 -->
+    <update id="update_user_info" parameterType="map">
+        <!-- 更新用户信息 -->
+        UPDATE book.user
+        SET
+        password = #{password},
+        phone_num = #{phone_num},
+        address = #{address},
+        birth = #{birth}
+        WHERE
+        user_id = #{user_id};
+    </update>
+    <!-- 删除购物车信息 -->
+    <delete id="delete_shop_cart" parameterType="map">
+        DELETE FROM book.shop
+        WHERE user_id = #{user_id} AND book_id = #{book_id};
+    </delete>
+
+    <!-- 查询订单 -->
+    <select id="search_order" resultType="com.taotao.pojo.Tb_shop">
+        select * from book.shop where user_id = #{user_id} and `order` = #{order};
+    </select>
+    <!-- 插入图书信息 -->
+    <insert id="insert_book_info" parameterType="map">
+        insert into book.book_info(book_name,category,book_id,unit_price,author,introduce,inventory,picture)
+        values(#{book_name},#{category},#{book_id},#{unit_price},#{author},#{introduce},#{inventory},#{picture})
+    </insert>
+
+    <!-- 发货 -->
+    <update id="update_book_num" parameterType="map">
+        update book.book_info,book.shop
+        set book_info.inventory = book_info.inventory - #{quantity_purchased},
+            shop.inventory  = book_info.inventory,
+            shop.shipments = 1
+        where book_info.book_id = #{book_id} and shop.user_id = #{user_id} and shop.book_id = #{book_id}
+    </update>
+    <!-- 修改图书库存 -->
+    <update id="add_book_inventory" parameterType="map">
+        update book.book_info,book.shop
+        set book_info.inventory = book_info.inventory + #{add_inventory},
+            shop.inventory  = book_info.inventory
+        where book_info.book_id = #{book_id}
+    </update>
+    <!-- 删除图书信息 -->
+    <delete id="delete_book_info" parameterType="map">
+
+    </delete>
+
+    <!-- 审核评价 -->
+    <update id="judge_appraise" parameterType="map">
+        update book.appraise
+        set appraise.send = 1
+        where appraise.user_id = #{user_id} and appraise.book_id = #{book_id}
+    </update>
+
+
+</mapper>

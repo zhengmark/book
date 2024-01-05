@@ -1,4 +1,11 @@
 # 创建用户表的列
+create database book;
+
+create table book.user(
+    user_id varchar(45) primary key,
+    user_name varchar(45)
+);
+
 alter table book.user
 add phone_num varchar(45);
 
